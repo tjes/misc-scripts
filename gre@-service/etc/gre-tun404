@@ -1,5 +1,9 @@
 # This is an example configuraton file that goes in /etc, make sure you modify this appropriately
+# Name of the GRE interface to create
 IFNAME="tun404"
-IFADDR=192.168.5.5
+# IP Address (including CIDR) of the GRE tunnel
+IFADDR=192.168.5.5/30
+# Local IP to send GRE traffic from
 LOCALIP=192.168.5.1
+# Remote IP to send GRE traffic to
 REMOTEIP=192.168.5.2
