@@ -1,0 +1,5 @@
+# This is an example configuraton file that goes in /etc, make sure you modify this appropriately
+IFNAME="tun404"
+IFADDR=192.168.5.5
+LOCALIP=192.168.5.1
+REMOTEIP=192.168.5.2

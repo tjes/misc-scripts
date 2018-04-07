@@ -1,0 +1,17 @@
+[Unit]
+Description=%i GRE Tunnel
+After=network.target
+Documentation=https://gist.github.com/tjes/b1bd0224dc47b40197e667044a1a6ea3/
+
+[Service]
+EnvironmentFile=/etc/gre-%i
+
+Type=oneshot
+ExecStart=/bin/sh -c "ip tunnel add ${IFNAME} local ${LOCALIP} remote ${REMOTEIP} mode gre; ip address add ${IFADDR} dev ${IFNAME}; ip link set ${IFNAME} up;"
+ExecStop=/bin/sh -c "ip tunnel del ${IFNAME}"
+ExecReload=/bin/sh -c "ip link set ${IFNAME} down; sleep 5; ipsec link set ${IFNAME} up"
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+Alias=${IFNAME}
