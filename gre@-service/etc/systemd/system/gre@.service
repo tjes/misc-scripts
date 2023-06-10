@@ -1,7 +1,7 @@
 [Unit]
 Description=%i GRE Tunnel
 After=network.target
-Documentation=https://gist.github.com/tjes/b1bd0224dc47b40197e667044a1a6ea3/
+Documentation=https://github.com/tjes/misc-scripts/blob/master/README.md
 
 [Service]
 EnvironmentFile=/etc/gre-%i
